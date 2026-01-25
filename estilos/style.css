@@ -1,3 +1,5 @@
+@charset "UTF-8";
+
 /* 
   Variáveis para cores:
   --fundo-principal
@@ -7,3 +9,54 @@
   --destaque-inverso
   --fundo-card
 */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --fundo-principal: #ffffff;
+    --texto: #000000;
+    --texto-inverso: #ffffff;
+    --destaque: #0080ff;
+    --destaque-inverso: #66bbff;
+    --fundo-card: #ffffff;
+} 
+body {
+    background-color: var(--fundo-principal);
+    color: var(--texto);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+}
+
+header {
+    background-color: var(--destaque);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    border-radius: 0px 0px 10px 10px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+nav#menu ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav#menu a {
+    color: var(--texto-inverso);
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+nav#menu a:hover {
+    color: var(--destaque-inverso);
+    color: var(--texto);
+}
