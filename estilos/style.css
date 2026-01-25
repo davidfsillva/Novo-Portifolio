@@ -1,21 +1,6 @@
 @charset "UTF-8";
 
-/* 
-  Variáveis para cores:
-  --fundo-principal
-  --texto
-  --texto-inverso
-  --destaque
-  --destaque-inverso
-  --fundo-card
-*/
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+/* Variáveis */
 :root {
   --fundo-principal: #ffffff;
   --texto: #000000;
@@ -23,7 +8,16 @@
   --destaque: #0080ff;
   --destaque-inverso: #66bbff;
   --fundo-card: #ffffff;
-} 
+}
+
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Base */
 body {
   background-color: var(--fundo-principal);
   color: var(--texto);
@@ -31,21 +25,19 @@ body {
   line-height: 1.6;
 }
 
+/* Header */
 header {
   background-color: var(--destaque);
   padding: 20px 0;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  border-radius: 0px 0px 10px 10px;
   display: flex;
   justify-content: center;
-  align-content: center;
+  box-shadow: 0 2px 4px rgba(0,0,0,.4);
+  border-radius: 0 0 10px 10px;
 }
 
 nav#menu ul {
   list-style: none;
   display: flex;
-  justify-content: center;
   gap: 30px;
 }
 
@@ -53,14 +45,13 @@ nav#menu a {
   color: var(--texto-inverso);
   text-decoration: none;
   font-weight: 600;
-  transition: color 0.3s ease;
 }
 
 nav#menu a:hover {
-  color: var(--destaque-inverso);
   color: var(--texto);
 }
 
+/* Layout */
 main {
   display: grid;
   grid-template-columns: auto 90vw auto;
@@ -68,86 +59,63 @@ main {
   margin-top: 20px;
 }
 
-section > p {
-  text-align: center;
-}
-
+section#ficha,
 section#detalhes {
   grid-column: 2;
-}
-
-article {
-  background-color: var(--fundo-card);
-  padding: 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-}
-
-article h2 {
-  color: var(--destaque);
-  margin-bottom: 15px;
-  border-bottom: 2px solid var(--destaque);
-  padding-bottom: 5px;
-}
-
-section#ficha {
-  background-color: rgb(245, 245, 245);
+  background-color: rgb(245,245,245);
   padding: 20px;
   border-radius: 8px;
-  grid-column: 2;
 }
 
-section#detalhes {
-  background-color: rgb(245, 245, 245);
-  color: var(--destaque);
-  padding: 20px;
-  border-radius: 8px;
-  grid-column: 2;
-}
-
-li {
-  color: var(--texto);
-}
-
-section#ficha img {
+/* Ficha */
+#ficha img {
   width: 200px;
   aspect-ratio: 1/1;
   object-fit: cover;
-  overflow: hidden;
   border-radius: 50%;
   border: 5px solid var(--fundo-card);
   outline: 5px solid var(--destaque);
   display: block;
   margin: auto;
-  margin-bottom: 15px;
 }
 
-section#ficha h1 {
-  color: var(--destaque);
-  margin: 15px;
-  font-size: 1.8em;
+#ficha h1 {
   text-align: center;
-  margin-bottom: 10px;
+  color: var(--destaque);
+  margin: 15px 0;
 }
 
-div#social {
+#social {
   display: flex;
   justify-content: center;
-  align-items: center;
-  font-size: 1.6em;
   gap: 1em;
-  margin-top: 15px;
+  font-size: 1.6em;
+  margin-top: 10px;
 }
 
-div#social a {
+#social a {
   color: var(--destaque);
-  transition: color 0.3s ease;
 }
 
-div#social a:hover {
+#social a:hover {
   color: var(--destaque-inverso);
 }
 
+/* Article padrão */
+article {
+  background-color: var(--fundo-card);
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+article h2 {
+  color: var(--destaque);
+  border-bottom: 2px solid var(--destaque);
+  margin-bottom: 15px;
+}
+
+/* Skills (IGUAL AO SEU) */
 #skill-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -157,123 +125,104 @@ div#social a:hover {
 #skill-container .info {
   display: flex;
   justify-content: space-between;
-  align-items: center;
 }
 
-#skill-container .nome {
+.nome {
   font-weight: bold;
-  color: var(--texto);
-  margin: 5px;
 }
 
-#skill-container .pocent {
+.porcent {
   font-weight: bold;
   color: var(--destaque);
 }
 
-#skill-container .barra {
+.barra {
   width: 100%;
   height: 10px;
-  background-color: var(--fundo-principal);
+  background-color: #ddd;
   border-radius: 10px;
-  box-shadow: #0000004d 0px 1px 2px;
 }
 
-#skill-container .progresso {
+.progresso {
   height: 100%;
   background-color: var(--destaque);
   border-radius: 10px;
 }
 
+/* Formação */
 #formacao-container {
   display: flex;
   flex-direction: column-reverse;
   gap: 20px;
 }
 
-#formacao-container .curso {
+.curso {
   background-color: var(--fundo-principal);
-  border-radius: 10px;
+  padding: 15px;
   border-left: 5px solid var(--destaque);
-  padding-left: 15px;
-  transition: border-left-width 0.3s ease, border-color 0.3s ease;
+  border-radius: 10px;
+  transition: .3s;
 }
 
-#formacao-container .curso:hover {
+.curso:hover {
   border-left-width: 15px;
-  border-color: var(--destaque);
-  cursor: pointer;
 }
 
-#formacao-container .periodo {
-  font-size: 0.8em;
-  font-weight: bold;
-  color: var(--texto);
-}
-
-#formacao-container .instituicao {
-  font-size: 1.2em;
-  font-weight: bold;
-  color: var(--destaque);
-}
-
-#project-container {
+/* Projects (CORRIGIDO) */
+.projeto-container {
   display: flex;
   flex-direction: column-reverse;
   gap: 20px;
 }
 
-#project-container .projeto {
+.projeto {
   display: flex;
   flex-direction: column;
   gap: 15px;
   background-color: var(--fundo-principal);
-  padding: 10px;
+  padding: 15px;
   border-radius: 10px;
   border-left: 5px solid var(--destaque);
-  transition: border-color 0.3s, border-left-width 0.3s;
+  transition: .3s;
 }
 
-#project-container .projeto:hover {
+.projeto:hover {
   border-left-width: 15px;
-  border-color: var(--destaque);
-  cursor: pointer;
 }
 
-#project-container .foto {
+.foto {
   width: 100%;
   aspect-ratio: 16/9;
   object-fit: cover;
-  overflow: hidden;
   border-radius: 10px;
 }
 
+/* Footer */
 footer {
   background-color: var(--destaque);
   color: var(--texto-inverso);
   text-align: center;
-  padding: 15px 0;
-  margin-top: 20px;
-  border-radius: 10px 10px 0px 0px;
+  padding: 15px;
+  border-radius: 10px 10px 0 0;
 }
 
+/* Responsivo */
 @media screen and (min-width: 600px) {
   #skill-container {
-    grid-template-columns: 1fr 1fr ;
+    grid-template-columns: 1fr 1fr;
   }
 
-  #project-container .projeto {
+  .projeto {
     flex-direction: row-reverse;
-    justify-content: space-between;
+    align-items: center;
   }
 
-  #project-container .projeto-info {
-    width: 80%;
-}
-
-#project-container .foto {
+  .foto {
+    max-width: 25%;
     aspect-ratio: 1/1;
-    max-width: 20%;
-    max-height: 200px;
+  }
+
+  .projeto-info {
+    width: 75%;
   }
 }
