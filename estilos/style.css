@@ -1,6 +1,5 @@
 @charset "UTF-8";
 
-/* Variáveis */
 :root {
   --fundo-principal: #ffffff;
   --texto: #000000;
@@ -10,14 +9,12 @@
   --fundo-card: #ffffff;
 }
 
-/* Reset */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* Base */
 body {
   background-color: var(--fundo-principal);
   color: var(--texto);
@@ -25,7 +22,6 @@ body {
   line-height: 1.6;
 }
 
-/* Header */
 header {
   background-color: var(--destaque);
   padding: 20px 0;
@@ -33,6 +29,7 @@ header {
   justify-content: center;
   box-shadow: 0 2px 4px rgba(0,0,0,.4);
   border-radius: 0 0 10px 10px;
+  position: sticky;
 }
 
 nav#menu ul {
@@ -51,7 +48,6 @@ nav#menu a:hover {
   color: var(--texto);
 }
 
-/* Layout */
 main {
   display: grid;
   grid-template-columns: auto 90vw auto;
@@ -67,7 +63,6 @@ section#detalhes {
   border-radius: 8px;
 }
 
-/* Ficha */
 #ficha img {
   width: 200px;
   aspect-ratio: 1/1;
@@ -101,7 +96,6 @@ section#detalhes {
   color: var(--destaque-inverso);
 }
 
-/* Article padrão */
 article {
   background-color: var(--fundo-card);
   padding: 20px;
@@ -115,7 +109,6 @@ article h2 {
   margin-bottom: 15px;
 }
 
-/* Skills (IGUAL AO SEU) */
 #skill-container {
   display: grid;
   grid-template-columns: 1fr;
@@ -149,7 +142,6 @@ article h2 {
   border-radius: 10px;
 }
 
-/* Formação */
 #formacao-container {
   display: flex;
   flex-direction: column-reverse;
@@ -168,7 +160,6 @@ article h2 {
   border-left-width: 15px;
 }
 
-/* Projects (CORRIGIDO) */
 .projeto-container {
   display: flex;
   flex-direction: column-reverse;
@@ -197,7 +188,6 @@ article h2 {
   border-radius: 10px;
 }
 
-/* Footer */
 footer {
   background-color: var(--destaque);
   color: var(--texto-inverso);
@@ -205,8 +195,6 @@ footer {
   padding: 15px;
   border-radius: 10px 10px 0 0;
 }
-
-/* Responsivo */
 @media screen and (min-width: 600px) {
   #skill-container {
     grid-template-columns: 1fr 1fr;
