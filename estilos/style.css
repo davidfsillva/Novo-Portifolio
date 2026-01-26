@@ -92,6 +92,10 @@ section#ficha, section#detalhes {
   margin: 15px 0;
 }
 
+#ficha p {
+  text-align: center;
+}
+
 #social {
   display: flex;
   justify-content: center;
