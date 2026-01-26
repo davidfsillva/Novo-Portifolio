@@ -96,6 +96,11 @@ section#ficha, section#detalhes {
   text-align: center;
 }
 
+li {
+  margin-bottom: 10px;
+  text-align: center;
+}
+
 #social {
   display: flex;
   justify-content: center;
@@ -209,6 +214,10 @@ h3 a {
   text-decoration: none;
 }
 
+h4 {
+  text-align: center;
+  padding-top: 20px;
+}
 .foto {
   width: 100%;
   aspect-ratio: 16/9;
