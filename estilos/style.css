@@ -22,6 +22,15 @@ body {
   line-height: 1.6;
 }
 
+body.escuro {
+  --fundo-principal: #121212;
+  --texto: #e0e0e0;
+  --texto-inverso: #121212;
+  --destaque: #1e90ff;
+  --destaque-inverso: #63b3ff;
+  --fundo-card: #1e1e1e;
+}
+
 header {
   background-color: var(--destaque);
   padding: 20px 0;
@@ -197,6 +206,18 @@ footer {
   border-radius: 10px 10px 0 0;
 }
 @media screen and (min-width: 600px) {
+  main {
+    grid-template-columns: auto 300px 1fr auto;
+  }
+
+  section#ficha {
+    grid-column: 2 / 3;
+  }
+
+  section#detalhes {
+    grid-column: 3 / 4;
+  }
+
   #skill-container {
     grid-template-columns: 1fr 1fr;
   }
