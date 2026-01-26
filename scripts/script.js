@@ -1,40 +1,55 @@
 const botao = document.getElementById('botao-tema');
 const body = document.body;
 
-// Persistência do tema
-const temasalvo = localStorage.getItem('tema');
-temaEscuro(temasalvo === 'escuro');
+/* ================================
+   PERSISTÊNCIA DO TEMA
+================================ */
+const temaSalvo = localStorage.getItem('tema');
 
-// Função para alternar entre tema claro e escuro
-function temaEscuro(tipo) {
-  if (tipo == true) {
-    body.classList.add('escuro');
-    botao.innerHTML = '<i class="fa-solid fa-sun"></i>';
-  } else {
-    body.classList.remove('escuro');
-    botao.innerHTML = '<i class="fa-solid fa-moon"></i>';
-  }
+if (!temaSalvo) {
+  localStorage.setItem('tema', 'claro');
 }
 
-botao.addEventListener('click', () => {
-  const isescuro = body.classList.toggle('escuro');
-  temaEscuro(isescuro);
-  localStorage.setItem('tema', isescuro ? 'escuro' : 'claro');
+if (temaSalvo === 'escuro') {
+  body.classList.add('escuro');
+  botao.innerHTML = '<i class="fa-solid fa-sun"></i>';
+} else {
+  botao.innerHTML = '<i class="fa-solid fa-moon"></i>';
+}
+
+/* ================================
+   BOTÃO MODO NOTURNO
+================================ */
+botao.addEventListener('click', (e) => {
+  e.preventDefault(); // evita scroll/topo
+
+  const isEscuro = body.classList.toggle('escuro');
+
+  botao.innerHTML = isEscuro
+    ? '<i class="fa-solid fa-sun"></i>'
+    : '<i class="fa-solid fa-moon"></i>';
+
+  localStorage.setItem('tema', isEscuro ? 'escuro' : 'claro');
 });
 
-// Scroll suave para links de navegação
-const navLinks = document.querySelectorAll('#menu ul a.link');
+/* ================================
+   SCROLL SUAVE (MENU)
+================================ */
+const navLinks = document.querySelectorAll('#menu ul a.link:not(#botao-tema)');
+
 navLinks.forEach(link => {
-  link.addEventListener('click', function(e) {
+  link.addEventListener('click', function (e) {
     e.preventDefault();
+
     const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      const headerHeight = document.querySelector('header').offsetHeight;
-      const targetPosition = target.offsetTop - headerHeight - 20;
-      window.scrollTo({
-        top: targetPosition,
-        behavior: 'smooth'
-      });
-    }
+    if (!target) return;
+
+    const headerHeight = document.querySelector('header').offsetHeight;
+    const targetPosition = target.offsetTop - headerHeight - 20;
+
+    window.scrollTo({
+      top: targetPosition,
+      behavior: 'smooth'
+    });
   });
 });
